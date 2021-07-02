@@ -123,8 +123,7 @@ void one_turn(char array[3][3][3], int player) {
     }
 }
 
-int main()
-{
+int main() {
 	char tictactoe[3][3][3];
 	char win_value;
 	int x,y,z, player;
