@@ -52,14 +52,16 @@ int PlayerWinningAtPos(char grid[3][3][3], char player, int x, int y, int z) {
         int dz = direction[2];
         int NumConsecutiveOnes = 0;
         int xi = x, yi = y, zi = z;
-        for (int i = 0; i < 3; i++) {
-            if(AtBounds(x, y, z, dx, dy, dz) == 1) {
-                break;
-            } else if (grid[xi][yi][zi] == player) {
-                NumConsecutiveOnes += 1;
-                xi += dx;
-                yi += dy;
-                zi += dz;
+        if (AtBounds(x, y, z, dx, dy, dz) == 1)
+            break;
+        else {
+            for (int i = 0; i < 3; i++) {
+                if (grid[xi][yi][zi] == player) {
+                    NumConsecutiveOnes += 1;
+                    xi += dx;
+                    yi += dy;
+                    zi += dz;
+                }
             }
         }
         if (NumConsecutiveOnes == 3) {
